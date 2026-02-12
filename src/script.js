@@ -15,7 +15,7 @@ const multiply = (a, b) => {
 const divide = (a, b) => {
     return a / b;
 }
-
+    
 const operate = (op, a, b) => {
     switch (op) {
         case '+': 
