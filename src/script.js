@@ -1,3 +1,5 @@
+const calcItem = document.querySelectorAll('.calc-item');
+
 const add = (a, b) => {
     return a + b;
 }
@@ -26,3 +28,12 @@ const operate = (op, a, b) => {
             return divide(a, b);
     }
 }
+
+calcItem.forEach((item) => {
+    item.addEventListener('click', () => {
+        const value = item.textContent;
+        if (+value || value === '0') {
+            console.log(+value)
+        }
+    })
+})
