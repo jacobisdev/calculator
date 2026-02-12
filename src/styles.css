@@ -20,7 +20,10 @@ body {
     box-shadow: 0px 0px 10px var(--shadow);
 }
 
-.calc-display {
+.display {
+    display: flex;
+    justify-content: end;
+    align-items: center;
     background-color: var(--secondary);
     color: var(--font);
     padding: 30px;
@@ -28,14 +31,15 @@ body {
     box-shadow: 0px 0px 5px var(--shadow);
     border-radius: 25px;
     font-size: 28px;
-    text-align: end;
+    height: 90px;
+    box-sizing: border-box;
 
     &:active {
         color: #F1D302;
     }
 }
 
-.calc-body {
+.body {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,7 +50,7 @@ body {
     display: flex;
 }
 
-.calc-btn {
+.btn {
     background-color: var(--secondary);
     color: var(--font);
     border: none;
@@ -61,6 +65,7 @@ body {
 
     &:hover {
         background-color: #8D3F63;
+        cursor: pointer;
         scale: .95;
     }
 
@@ -70,7 +75,8 @@ body {
     }
 }
 
-.symbol {
+.symbol,
+.operator {
     background-color: #C1292E;
 }
 
