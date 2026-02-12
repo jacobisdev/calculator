@@ -34,9 +34,9 @@ body {
     height: 90px;
     box-sizing: border-box;
 
-    &:active {
+    /* &:active {
         color: #F1D302;
-    }
+    } */
 }
 
 .body {
