@@ -5,45 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <script type="module" src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
     <title>Calculator</title>
 </head>
 <body>
-    <div class="container">
+    <div class="calculator">
         <div class="calc-display">1 + 2 - 5</div>
-        <table class="calc-body">
-            <tbody>
-                <tr>
-                    <td><button class="calc-btn">(</button></td>
-                    <td><button class="calc-btn">)</button></td>
-                    <td><button class="calc-btn">%</button></td>
-                    <td><button class="calc-btn">AC</button></td>
-                </tr>
-                <tr>
-                    <td><button class="calc-btn">7</button></td>
-                    <td><button class="calc-btn">8</button></td>
-                    <td><button class="calc-btn">9</button></td>
-                    <td><button class="calc-btn">/</button></td>
-                </tr>
-                <tr>
-                    <td><button class="calc-btn">4</button></td>
-                    <td><button class="calc-btn">5</button></td>
-                    <td><button class="calc-btn">6</button></td>
-                    <td><button class="calc-btn">x</button></td>
-                </tr>
-                <tr>
-                    <td><button class="calc-btn">1</button></td>
-                    <td><button class="calc-btn">2</button></td>
-                    <td><button class="calc-btn">3</button></td>
-                    <td><button class="calc-btn">-</button></td>
-                </tr>
-                <tr>
-                    <td><button class="calc-btn">0</button></td>
-                    <td><button class="calc-btn">.</button></td>
-                    <td><button class="calc-btn">=</button></td>
-                    <td><button class="calc-btn">+</button></td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="calc-body">
+            <div class="row">
+                <button class="calc-btn">(</button>
+                <button class="calc-btn">)</button>
+                <button class="calc-btn">%</button>
+                <button class="calc-btn">AC</button>
+            </div>
+            <div class="row">
+                <button class="calc-btn">7</button>
+                <button class="calc-btn">8</button>
+                <button class="calc-btn">9</button>
+                <button class="calc-btn">/</button>
+            </div>
+            <div class="row">
+                <button class="calc-btn">4</button>
+                <button class="calc-btn">5</button>
+                <button class="calc-btn">6</button>
+                <button class="calc-btn">x</button>
+            </div>
+            <div class="row">
+                <button class="calc-btn">1</button>
+                <button class="calc-btn">2</button>
+                <button class="calc-btn">3</button>
+                <button class="calc-btn">-</button>
+            </div>
+            <div class="row">
+                <button class="calc-btn">0</button>
+                <button class="calc-btn">.</button>
+                <button class="calc-btn">=</button>
+                <button class="calc-btn">+</button>
+            </div>
+        </div>
     </div>
 </body>
 </html>

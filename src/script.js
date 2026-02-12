@@ -1,4 +1,4 @@
-const calcItem = document.querySelectorAll('.calc-item');
+const calcItem = document.querySelectorAll('.calc-btn');
 
 const add = (a, b) => {
     return a + b;
