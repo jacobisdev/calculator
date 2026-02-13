@@ -34,15 +34,6 @@ const operate = (a, op, b) => {
     }
 }
 
-let total = 0, value = 0;
-let operator = '';
-
-const clear = () => {
-    total = 0;
-    operator = '';
-    value = 0;
-}
-
 btns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         const target = e.target;
@@ -64,35 +55,19 @@ btns.forEach((btn) => {
         }
 
         if (targetIsOp) {
-            operator = input;
-            if (total === 0) {
-                console.log('case 1')
-                total = +display.textContent;
-            } else if (total !== 0) {
-                value = +display.textContent;
-                total = operate(total, operator, value);
-                display.textContent = total;
-            }
-            console.log(total, operator, value);
+
         }
 
         if (targetIsEqual) {
-            total = value;
-            value = +display.textContent;
-            display.textContent = operate(total, operator, value);
-            console.log(value, operator, total);
-            console.log(operate(total, operator, value));
-            clear();
+
         }
 
         if (targetIsClear) {
-            display.textContent = '0';
-            clear();
+
         }
 
         if (targetIsSymbol) {
 
-        }
-        
+        } 
     })
 })
