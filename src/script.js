@@ -34,6 +34,15 @@ const operate = (a, op, b) => {
     }
 }
 
+let result = 0, total = 0, value = 0;
+let operator = '';
+let opWasClicked = false;
+
+const clear = () => {
+    total = 0;
+    value = 0;
+}
+
 btns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         const target = e.target;
@@ -51,19 +60,29 @@ btns.forEach((btn) => {
                 display.textContent === 'Invalid Operation'
             ) display.textContent = '';
 
+            if (opWasClicked) {
+                display.textContent = '';
+                opWasClicked = false;
+            }
             display.textContent += input;
+            value = +display.textContent;
         }
 
         if (targetIsOp) {
-
+            operator = input;
+            opWasClicked = true;
+            total = value;
         }
 
         if (targetIsEqual) {
-
+            result = operate(total, operator, value);
+            value = result;
+            display.textContent = result;
         }
 
         if (targetIsClear) {
-
+            display.textContent = '0';
+            clear();
         }
 
         if (targetIsSymbol) {
