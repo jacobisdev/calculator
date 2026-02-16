@@ -30,7 +30,7 @@ const operate = (a, op, b) => {
         case '÷':
             return divide(a, b);
         default:
-            return 'Invalid Operation'
+            return 'Math Error';
     }
 }
 
@@ -57,7 +57,7 @@ btns.forEach((btn) => {
         if (targetIsNum) {
             if (
                 display.textContent[0] === '0' ||
-                display.textContent === 'Invalid Operation'
+                display.textContent === 'Math Error'
             ) display.textContent = '';
 
             if (opWasClicked) {
