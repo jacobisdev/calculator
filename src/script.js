@@ -20,7 +20,7 @@ const divide = (a = 1, b = 1) => {
     return a / b;
 }
     
-const operate = (a, op, b) => {
+const operate = (a, op = '+', b) => {
     switch (op) {
         case '+': 
             return add(a, b);
@@ -38,13 +38,13 @@ const operate = (a, op, b) => {
 }
 
 let result = 0, total = 0, value = 0;
-let operator = '';
+let operator;
 let opWasClicked = false;
 
 const clear = () => {
     total = 0;
     value = 0;
-    operator = '';
+    operator = undefined;
 }
 
 btns.forEach((btn) => {
@@ -78,6 +78,7 @@ btns.forEach((btn) => {
             opWasClicked = true;
             if (value !== 0) {
                 total = value;
+                value = 0;
             }
         }
 
@@ -85,6 +86,7 @@ btns.forEach((btn) => {
             result = operate(total, operator, value);
             value = result;
             display.textContent = result;
+            total = 0;
         }
 
         if (targetIsClear) {
