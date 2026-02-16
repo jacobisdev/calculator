@@ -1,19 +1,22 @@
 const display = document.querySelector('.display');
 const btns = document.querySelectorAll('.btn');
 
-const add = (a, b) => {
+const ERROR_MSG = 'Math Error';
+
+const add = (a = 0, b = 0) => {
     return a + b;
 }
 
-const subtract = (a, b) => {
+const subtract = (a = 0, b = 0) => {
     return a - b;
 }
 
-const multiply = (a, b) => {
+const multiply = (a = 1, b = 1) => {
     return a * b;
 }
 
-const divide = (a, b) => {
+const divide = (a = 1, b = 1) => {
+    if (a == 0 || b == 0) return ERROR_MSG;
     return a / b;
 }
     
@@ -30,7 +33,7 @@ const operate = (a, op, b) => {
         case '÷':
             return divide(a, b);
         default:
-            return 'Math Error';
+            return ERROR_MSG;
     }
 }
 
@@ -41,13 +44,14 @@ let opWasClicked = false;
 const clear = () => {
     total = 0;
     value = 0;
+    operator = '';
 }
 
 btns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         const target = e.target;
         const input = btn.textContent;
-
+        
         const targetIsNum = target.classList.contains('num') && (+input || input === '0');
         const targetIsOp = target.classList.contains('operator');
         const targetIsEqual = target.classList.contains('equal');
@@ -57,10 +61,11 @@ btns.forEach((btn) => {
         if (targetIsNum) {
             if (
                 display.textContent[0] === '0' ||
-                display.textContent === 'Math Error'
+                display.textContent === ERROR_MSG
             ) display.textContent = '';
 
             if (opWasClicked) {
+                value = 0;
                 display.textContent = '';
                 opWasClicked = false;
             }
@@ -71,7 +76,9 @@ btns.forEach((btn) => {
         if (targetIsOp) {
             operator = input;
             opWasClicked = true;
-            total = value;
+            if (value !== 0) {
+                total = value;
+            }
         }
 
         if (targetIsEqual) {
