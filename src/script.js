@@ -21,20 +21,29 @@ const divide = (a = 1, b = 1) => {
 }
     
 const operate = (a, op = '+', b) => {
+    let result = 0;
     switch (op) {
         case '+': 
-            return add(a, b);
+            result = add(a, b);
+            break;
         case '-': 
-            return subtract(a, b);
+            result = subtract(a, b);
+            break;
         case '*':
         case '×':
-            return multiply(a, b);
+            result = multiply(a, b);
+            break;
         case '/':
         case '÷':
-            return divide(a, b);
+            result = divide(a, b);
+            break;
         default:
             return ERROR_MSG;
     }
+
+    if (!Number.isInteger(result)) result = result.toFixed(11);
+    
+    return result;
 }
 
 let result = 0, total = 0, value = 0;
