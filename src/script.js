@@ -83,8 +83,17 @@ btns.forEach((btn) => {
         }
 
         if (targetIsOp) {
+            const lastOp = operator;
             operator = input;
             opWasClicked = true;
+
+            if (total !== 0 && value !== 0) {
+                result = operate(total, lastOp, value);
+                value = result;
+                display.textContent = result;
+                total = 0;
+            }
+
             if (value !== 0) {
                 total = value;
                 value = 0;
