@@ -16,11 +16,11 @@ const multiply = (a = 1, b = 1) => {
 }
 
 const divide = (a = 1, b = 1) => {
-    if (a == 0 || b == 0) return ERROR_MSG;
     return a / b;
 }
     
-const operate = (a, op = '+', b) => {
+const operate = (a, op, b) => {
+    if (!op) op = '+';
     let result = 0;
     switch (op) {
         case '+': 
@@ -35,6 +35,7 @@ const operate = (a, op = '+', b) => {
             break;
         case '/':
         case '÷':
+            if (a == 0 || b == 0) return ERROR_MSG;
             result = divide(a, b);
             break;
         default:
@@ -47,13 +48,14 @@ const operate = (a, op = '+', b) => {
 }
 
 let result = 0, total = 0, value = 0;
-let operator;
+let operator = '';
 let opWasClicked = false;
 
 const clear = () => {
     total = 0;
     value = 0;
-    operator = undefined;
+    operator = '';
+    opWasClicked = false;
 }
 
 btns.forEach((btn) => {
