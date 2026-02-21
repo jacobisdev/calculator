@@ -42,20 +42,18 @@ const operate = (a, op, b) => {
             return ERROR_MSG;
     }
 
-    if (!Number.isInteger(result)) result = result.toFixed(11);
-    
-    return result;
+    return +result.toPrecision(11);
 }
 
 let result = 0, total = 0, value = 0;
 let operator = '';
-let opWasClicked = false;
+let opIsActive = false;
 
 const clear = () => {
     total = 0;
     value = 0;
     operator = '';
-    opWasClicked = false;
+    opIsActive = false;
 }
 
 btns.forEach((btn) => {
@@ -75,10 +73,10 @@ btns.forEach((btn) => {
                 display.textContent === ERROR_MSG
             ) display.textContent = '';
 
-            if (opWasClicked) {
+            if (opIsActive) {
                 value = 0;
                 display.textContent = '';
-                opWasClicked = false;
+                opIsActive = false;
             }
             display.textContent += input;
             value = +display.textContent;
@@ -87,7 +85,7 @@ btns.forEach((btn) => {
         if (targetIsOp) {
             const lastOp = operator;
             operator = input;
-            opWasClicked = true;
+            opIsActive = true;
 
             if (total !== 0 && value !== 0) {
                 result = operate(total, lastOp, value);
@@ -107,6 +105,7 @@ btns.forEach((btn) => {
             value = result;
             display.textContent = result;
             total = 0;
+            opIsActive = true;
         }
 
         if (targetIsClear) {
