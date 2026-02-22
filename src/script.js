@@ -63,16 +63,15 @@ const clear = () => {
 }
 
 btns.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-        const target = e.target;
+    btn.addEventListener('click', () => {
         const input = btn.textContent;
         
-        const isNum = target.classList.contains('num') && (+input || input === '0');
-        const isOp = target.classList.contains('operator');
-        const isEqual = target.classList.contains('equal');
-        const isClear = target.classList.contains('clear');
-        const isPercentage = target.classList.contains('percentage');
-        const isDot = target.classList.contains('dot');
+        const isNum = btn.classList.contains('num') && (+input || input === '0');
+        const isOp = btn.classList.contains('operator');
+        const isEqual = btn.classList.contains('equal');
+        const isClear = btn.classList.contains('clear');
+        const isPercentage = btn.classList.contains('percentage');
+        const isDot = btn.classList.contains('dot');
 
         if (isNum) {
             if (

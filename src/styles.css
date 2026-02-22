@@ -71,7 +71,6 @@ body {
 
     &:active {
         background-color: #7F3959;
-        
     }
 }
 
@@ -84,4 +83,8 @@ body {
 
 .equal {
     background-color: #235789;
-}   
+}
+
+.op-active {
+    background-color: #7F3959;
+}
