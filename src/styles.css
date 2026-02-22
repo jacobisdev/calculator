@@ -76,7 +76,9 @@ body {
 }
 
 .symbol,
-.operator {
+.operator,
+.dot,
+.percentage {
     background-color: #C1292E;
 }
 

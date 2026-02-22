@@ -45,9 +45,15 @@ const operate = (a, op, b) => {
     return +result.toPrecision(11);
 }
 
-let result = 0, total = 0, value = 0;
+let total = 0, value = 0;
 let operator = '';
 let opIsActive = false;
+
+const calculate = (a, op, b) => {
+    value = operate(a, op, b);
+    display.textContent = value;
+    total = 0;
+}
 
 const clear = () => {
     total = 0;
@@ -66,6 +72,7 @@ btns.forEach((btn) => {
         const isEqual = target.classList.contains('equal');
         const isClear = target.classList.contains('clear');
         const isPercentage = target.classList.contains('percentage');
+        const isDot = target.classList.contains('dot');
 
         if (isNum) {
             if (
@@ -88,10 +95,7 @@ btns.forEach((btn) => {
             opIsActive = true;
 
             if (total !== 0 && value !== 0) {
-                result = operate(total, lastOp, value);
-                value = result;
-                display.textContent = result;
-                total = 0;
+                calculate(total, lastOp, value);
             }
 
             if (value !== 0) {
@@ -101,10 +105,7 @@ btns.forEach((btn) => {
         }
 
         if (isEqual) {
-            result = operate(total, operator, value);
-            value = result;
-            display.textContent = result;
-            total = 0;
+            calculate(total, operator, value);
             opIsActive = true;
         }
 
@@ -114,6 +115,10 @@ btns.forEach((btn) => {
         }
 
         if (isPercentage) {
+            
+        }
+
+        if (isDot) {
 
         } 
     })
