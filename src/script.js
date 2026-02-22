@@ -61,13 +61,13 @@ btns.forEach((btn) => {
         const target = e.target;
         const input = btn.textContent;
         
-        const targetIsNum = target.classList.contains('num') && (+input || input === '0');
-        const targetIsOp = target.classList.contains('operator');
-        const targetIsEqual = target.classList.contains('equal');
-        const targetIsClear = target.classList.contains('clear');
-        const targetIsSymbol = target.classList.contains('symbol');
+        const isNum = target.classList.contains('num') && (+input || input === '0');
+        const isOp = target.classList.contains('operator');
+        const isEqual = target.classList.contains('equal');
+        const isClear = target.classList.contains('clear');
+        const isPercentage = target.classList.contains('percentage');
 
-        if (targetIsNum) {
+        if (isNum) {
             if (
                 display.textContent[0] === '0' ||
                 display.textContent === ERROR_MSG
@@ -82,7 +82,7 @@ btns.forEach((btn) => {
             value = +display.textContent;
         }
 
-        if (targetIsOp) {
+        if (isOp) {
             const lastOp = operator;
             operator = input;
             opIsActive = true;
@@ -100,7 +100,7 @@ btns.forEach((btn) => {
             }
         }
 
-        if (targetIsEqual) {
+        if (isEqual) {
             result = operate(total, operator, value);
             value = result;
             display.textContent = result;
@@ -108,12 +108,12 @@ btns.forEach((btn) => {
             opIsActive = true;
         }
 
-        if (targetIsClear) {
+        if (isClear) {
             display.textContent = '0';
             clear();
         }
 
-        if (targetIsSymbol) {
+        if (isPercentage) {
 
         } 
     })
