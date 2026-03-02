@@ -33,10 +33,6 @@ body {
     font-size: 28px;
     height: 90px;
     box-sizing: border-box;
-
-    /* &:active {
-        color: #F1D302;
-    } */
 }
 
 .body {
@@ -74,7 +70,11 @@ body {
     }
 }
 
-.symbol,
+.delete,
+.clear {
+    background-color: #235789;
+}
+
 .operator,
 .dot,
 .percentage {
@@ -83,6 +83,7 @@ body {
 
 .equal {
     background-color: #235789;
+    width: 160px;
 }
 
 .op-active {
