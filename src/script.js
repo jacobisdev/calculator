@@ -46,7 +46,7 @@ const operate = (a, op, b) => {
 }
 
 let total = 0, value = 0;
-let operator = '';
+let op = '';
 let opIsActive = false;
 
 const calculate = (a, op, b) => {
@@ -58,7 +58,7 @@ const calculate = (a, op, b) => {
 const clear = () => {
     total = 0;
     value = 0;
-    operator = '';
+    op = '';
     opIsActive = false;
 }
 
@@ -67,7 +67,7 @@ btns.forEach((btn) => {
         const input = btn.textContent;
         
         const isNum = btn.classList.contains('num') && (+input || input === '0');
-        const isOp = btn.classList.contains('operator');
+        const isOp = btn.classList.contains('op');
         const isEqual = btn.classList.contains('equal');
         const isClear = btn.classList.contains('clear');
         const isDel = btn.classList.contains('delete');
@@ -90,12 +90,12 @@ btns.forEach((btn) => {
         }
 
         if (isOp) {
-            const lastOp = operator;
-            operator = input;
+            const lastOp = op;
+            op = btn;
             opIsActive = true;
 
             if (total !== 0 && value !== 0) {
-                calculate(total, lastOp, value);
+                calculate(total, lastOp.textContent, value);
             }
 
             if (value !== 0) {
@@ -105,7 +105,7 @@ btns.forEach((btn) => {
         }
 
         if (isEqual) {
-            calculate(total, operator, value);
+            calculate(total, op.textContent, value);
             opIsActive = true;
         }
 
