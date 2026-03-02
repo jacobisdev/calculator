@@ -70,6 +70,7 @@ btns.forEach((btn) => {
         const isOp = btn.classList.contains('operator');
         const isEqual = btn.classList.contains('equal');
         const isClear = btn.classList.contains('clear');
+        const isDel = btn.classList.contains('delete');
         const isPercentage = btn.classList.contains('percentage');
         const isDot = btn.classList.contains('dot');
 
@@ -111,6 +112,13 @@ btns.forEach((btn) => {
         if (isClear) {
             display.textContent = '0';
             clear();
+        }
+
+        if (isDel) {
+            if (!opIsActive) {
+                display.textContent = display.textContent.slice(0, -1);
+                value = +display.textContent;
+            }
         }
 
         if (isPercentage) {
