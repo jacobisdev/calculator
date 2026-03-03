@@ -35,6 +35,7 @@ const operate = (a, op, b) => {
             break;
         case '/':
         case '÷':
+            // biome-ignore lint/suspicious/noDoubleEquals: cause it could be a str or an int
             if (a == 0 || b == 0) return ERROR_MSG;
             result = divide(a, b);
             break;
@@ -67,12 +68,14 @@ btns.forEach((btn) => {
         const input = btn.textContent;
         
         const isNum = btn.classList.contains('num') && (+input || input === '0');
-        const isOp = btn.classList.contains('op');
+        const isOp = btn.classList.contains('operator');
         const isEqual = btn.classList.contains('equal');
         const isClear = btn.classList.contains('clear');
         const isDel = btn.classList.contains('delete');
         const isPercentage = btn.classList.contains('percentage');
         const isDot = btn.classList.contains('dot');
+
+        const lastOp = op;
 
         if (isNum) {
             if (
@@ -89,9 +92,12 @@ btns.forEach((btn) => {
             value = +display.textContent;
         }
 
+        if (lastOp.classList?.contains('active')) lastOp.classList.remove('active');
+        
         if (isOp) {
-            const lastOp = op;
             op = btn;
+            op.classList.add('active');
+
             opIsActive = true;
 
             if (total !== 0 && value !== 0) {
