@@ -128,7 +128,8 @@ btns.forEach((btn) => {
         }
 
         if (isPercentage) {
-            
+            value /= 100;
+            display.textContent = value;
         }
 
         if (isDot) {
