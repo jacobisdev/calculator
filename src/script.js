@@ -29,11 +29,9 @@ const operate = (a, op, b) => {
         case '-': 
             result = subtract(a, b);
             break;
-        case '*':
         case '×':
             result = multiply(a, b);
             break;
-        case '/':
         case '÷':
             // biome-ignore lint/suspicious/noDoubleEquals: cause it could be a str or an int
             if (a == 0 || b == 0) return ERROR_MSG;
@@ -128,8 +126,17 @@ btns.forEach((btn) => {
         }
 
         if (isPercentage) {
-            value /= 100;
-            display.textContent = value;
+            switch (op.textContent) {
+                case '+':
+                case '-':
+                    value = total * (value / 100)
+                    display.textContent = value;
+                    break;  
+                default:
+                    value /= 100;
+                    display.textContent = value;
+                    break;
+            }
         }
 
         if (isDot) {
