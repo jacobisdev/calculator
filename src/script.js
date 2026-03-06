@@ -77,7 +77,7 @@ btns.forEach((btn) => {
 
         if (isNum) {
             if (
-                display.textContent[0] === '0' ||
+                display.textContent === '0' ||
                 display.textContent === ERROR_MSG
             ) display.textContent = '';
 
