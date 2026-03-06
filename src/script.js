@@ -41,7 +41,11 @@ const operate = (a, op, b) => {
             return ERROR_MSG;
     }
 
-    return +result.toPrecision(11);
+    if (String(result).length >= 11) {
+        result = result.toExponential(11);
+    }
+
+    return result;
 }
 
 let total = 0, value = 0;
