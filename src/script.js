@@ -47,10 +47,10 @@ const operate = (a, op, b) => {
 let total = 0, value = 0;
 let op = '';
 let opIsActive = false;
-let secondValueEntered = false;
+let secondOperandEntered = false;
 
 const calculate = (a, op, b) => {
-    if (secondValueEntered) {
+    if (secondOperandEntered) {
         value = operate(a, op, b);
         display.textContent = value;
         total = 0;
@@ -62,7 +62,7 @@ const clear = () => {
     value = 0;
     op = '';
     opIsActive = false;
-    secondValueEntered = false;
+    secondOperandEntered = false;
 }
 
 btns.forEach((btn) => {
@@ -89,7 +89,7 @@ btns.forEach((btn) => {
                 value = 0;
                 display.textContent = '';
                 opIsActive = false;
-                secondValueEntered = true;
+                secondOperandEntered = true;
             }
             display.textContent += input;
             value = +display.textContent;
@@ -102,7 +102,7 @@ btns.forEach((btn) => {
             op.classList.add('active');
 
             opIsActive = true;
-            secondValueEntered = false;
+            secondOperandEntered = false;
 
             if (total !== 0 && value !== 0) {
                 calculate(total, lastOp.textContent, value);
