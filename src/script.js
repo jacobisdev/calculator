@@ -18,15 +18,15 @@ const multiply = (a = 1, b = 1) => {
 const divide = (a = 1, b = 1) => {
     return a / b;
 }
-    
+
 const operate = (a, op, b) => {
     if (!op) op = '+';
     let result = 0;
     switch (op) {
-        case '+': 
+        case '+':
             result = add(a, b);
             break;
-        case '-': 
+        case '-':
             result = subtract(a, b);
             break;
         case '×':
@@ -64,7 +64,7 @@ const clear = () => {
 btns.forEach((btn) => {
     btn.addEventListener('click', () => {
         const input = btn.textContent;
-        
+
         const isNum = btn.classList.contains('num') && (+input || input === '0');
         const isOp = btn.classList.contains('operator');
         const isEqual = btn.classList.contains('equal');
@@ -91,7 +91,7 @@ btns.forEach((btn) => {
         }
 
         if (lastOp.classList?.contains('active')) lastOp.classList.remove('active');
-        
+
         if (isOp) {
             op = btn;
             op.classList.add('active');
@@ -131,7 +131,7 @@ btns.forEach((btn) => {
                 case '-':
                     value = total * (value / 100)
                     display.textContent = value;
-                    break;  
+                    break;
                 default:
                     value /= 100;
                     display.textContent = value;
@@ -140,7 +140,9 @@ btns.forEach((btn) => {
         }
 
         if (isDot) {
-
-        } 
+            if (!display.textContent.includes(input)) {
+                display.textContent += input;
+            }
+        }
     })
 })
