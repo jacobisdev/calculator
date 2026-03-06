@@ -100,18 +100,18 @@ btns.forEach((btn) => {
         if (isOp) {
             op = btn;
             op.classList.add('active');
-
             opIsActive = true;
-            secondOperandEntered = false;
-
+            
             if (total !== 0 && value !== 0) {
                 calculate(total, lastOp.textContent, value);
             }
-
+            
             if (value !== 0) {
                 total = value;
                 value = 0;
             }
+            
+            secondOperandEntered = false;
         }
 
         if (isEqual) {
@@ -125,10 +125,12 @@ btns.forEach((btn) => {
         }
 
         if (isDel) {
-            if (!opIsActive) {
+            if (display.textContent.length === 1) {
+                display.textContent = '0';
+            } else if (!opIsActive) {
                 display.textContent = display.textContent.slice(0, -1);
-                value = +display.textContent;
             }
+            value = +display.textContent;
         }
 
         if (isPercentage) {
